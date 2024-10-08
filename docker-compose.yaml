@@ -2,6 +2,7 @@ version: "3"
 
 services:
   wg:
+    restart: on-failure:3
     build: .
     #image: ngoduykhanh/wireguard-ui:latest
     container_name: wgui
@@ -13,11 +14,11 @@ services:
       - EMAIL_FROM_ADDRESS
       - EMAIL_FROM_NAME
       - SESSION_SECRET
-      - WGUI_USERNAME=alpha
-      - WGUI_PASSWORD=this-unusual-password
+      - WGUI_USERNAME=admin
+      - WGUI_PASSWORD=admin
       - WG_CONF_TEMPLATE
-      - WGUI_MANAGE_START=false
-      - WGUI_MANAGE_RESTART=false
+      - WGUI_MANAGE_START=true
+      - WGUI_MANAGE_RESTART=true
     logging:
       driver: json-file
       options:

@@ -9,3 +9,5 @@ sudo rm -rf db/users
 
 docker compose build --build-arg=GIT_COMMIT=$(git rev-parse --short HEAD)
 docker compose up --detach
+
+sudo cp -a helper /etc/wireguard
